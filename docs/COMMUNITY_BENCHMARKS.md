@@ -18,6 +18,11 @@ and their limits. Report what you actually measured and label estimates separate
 - [2026-10-03: 2x AMD Instinct MI50 16 GB (gfx906), Xeon E5-2666 v3, 32 GB RAM](../bench/results/2026-10-03-community-2x-mi50/README.md):
   the gfx906 build (#638) with #639 and #640, Coder IQ1_M, 131,072-token context, layer split across both cards;
   three runs each at 4,096, 32,768, and 128,000 prompt tokens, plus six recall checks.
+- [2026-10-03: RTX 4090, Ryzen 9 7950X, 48 GB RAM](../bench/results/2026-10-03-community-rtx4090-iq3s-140k-code/README.md):
+  Strata 0.1.38, Flash-Next IQ3_S, 143,360-token context, `draft_vocab=cyrillic`;
+  three runs each at ~4,096, ~32,768, and ~125,000 prompt tokens, plus six recall
+  checks (6/6 found). A paired run with Russian prompts is in
+  [2026-10-03-community-rtx4090-iq3s-140k-ru](../bench/results/2026-10-03-community-rtx4090-iq3s-140k-ru/README.md).
 
 ## What to record
 
