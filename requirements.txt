@@ -21,3 +21,14 @@ charset-normalizer==3.5.1
 idna==3.20
 urllib3==2.8.0
 colorama==0.4.6; sys_platform == "win32"
+
+# --- local addition on this machine (not upstream) ---
+# Without it serve/structured.py only checks "one JSON object"; with it a response_format
+# json_schema is validated for real (types, required fields, additionalProperties).
+# It is imported lazily, so this line is only about a fresh .venv. Remove: pip uninstall -y jsonschema
+jsonschema==4.26.0
+# its dependencies
+attrs==26.1.0
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==2026.6.3
