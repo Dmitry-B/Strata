@@ -21,6 +21,25 @@ and their limits. Report what you actually measured and label estimates separate
 - [2026-10-04: 2x Intel Arc Pro B60 24 GB, Ryzen 5 5600, 64 GB RAM](../bench/results/2026-10-04-community-2x-arc-pro-b60/README.md):
   the SYCL port at `6f32ec0` with two fixes, Coder IQ1_M and Flash-Next IQ2_XS, 8,192-token context, layer split across both cards;
   short prompts and 2K-token prompts, plus one run on a single B60. Intel's SYCL engine, no 4,096/32,768/128,000-token sweep.
+- [2026-10-03: RTX 4090, Ryzen 9 7950X, 48 GB RAM — Flash-Next IQ3_S, 143,360 tokens](../bench/results/2026-10-03-community-rtx4090-iq3s-140k/README.md):
+  Strata 0.1.38, the resident-experts variant; two prompt arms (code-explanation text and Russian prose), three runs
+  each at 4,096, 32,768 and 131,072 prompt tokens, plus six recall checks (6/6). Includes the RAM cost of
+  `--resident-experts` on a 48 GB PC.
+- [2026-10-03 → 2026-10-06: RTX 4090, Ryzen 9 7950X, 48 GB RAM — Flash-Next IQ3_XXS, 204,800 tokens](../bench/results/2026-10-03-community-rtx4090-iq3xxs-200k/README.md):
+  one PC and one run configuration measured four times — Strata 0.1.38, 0.1.39, 0.1.40 and 0.1.40.1 — with
+  `draft_vocab=cyrillic`; three runs each at 4,096, 32,768 and 131,072 prompt tokens in the same two prompt arms,
+  plus six recall checks per arm (6/6 in every arm), a discarded cold-start run, and what each comparison here can
+  and cannot say.
+- [2026-10-06: RTX 4090 — two opt-ins on one GPU](../bench/results/2026-10-06-community-rtx4090-opt-ins/README.md):
+  `STRATA_KV_PREFETCH=1` measured without `--kv-resident` (-4.3% at 32K, -2.1% at 128K: nothing to overlap), and
+  `"parallel": 2` / `--batch-mtp` (a slot costs 2.88 GiB at this context, the expert cache drops 6946 → 3329 slots,
+  one client loses ~28% decode while 3-4 clients get 3-4x lower wall time; `--batch-mtp` cannot admit with an MMVQ
+  draft pack — #1012, #1063).
+- [2026-10-06: RTX 4090 — what 0.1.40.1 does with a written `<tool_call>` and with waiting requests](../bench/results/2026-10-06-community-rtx4090-toolcall-hotfix/README.md):
+  results-only verification of #804/#1058 and #1012: the release corpus `serve/fixtures/rcall_specimens.json` replayed
+  through the server's own parser at six feed widths and both `stream_tools` modes (37/37, 444 runs), eight live
+  requests with a declared tool, three requests waiting for a killed engine (16.6 s / 40.5 s / 40.4 s, no 300 s hang),
+  and 527 unit tests on this machine.
 
 ## What to record
 
