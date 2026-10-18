@@ -1,0 +1,365 @@
+{
+ "label": "long-code",
+ "style": "code",
+ "env": {
+  "collected_at": "2026-10-18T09:14:15",
+  "gpu": {
+   "name": "NVIDIA GeForce RTX 4090",
+   "vram_mib": "23028",
+   "driver": "615.71.09",
+   "power_limit_w": "480.00",
+   "pci_bus": "00000000:01:00.0"
+  },
+  "gpu_link": "Failed to parse --display/-d flags",
+  "cpu": {
+   "model": "AMD Ryzen 9 7950X 16-Core Processor",
+   "logical_cpus": "32"
+  },
+  "ram_total_kib": "47579464",
+  "os": "Ubuntu 26.04.1 LTS",
+  "kernel": "7.0.0-38-generic",
+  "cuda": "release 13.4, V13.4.92",
+  "storage": "",
+  "strata_commit": "477ac13cbe8e582c20484871ce459d20d82df09d",
+  "strata_branch": "main",
+  "engine_version": "0.1.45",
+  "model_name": "qwen3.8-flash-next-iq3_s",
+  "context": {
+   "native": 204800,
+   "max_positions": 204800
+  },
+  "cache_max_tokens": 204800,
+  "vision": {
+   "enabled": true,
+   "available": true,
+   "error": null
+  },
+  "engine_launch_command": "/home/dgbox/Strata/engine/strata --serve --pack /home/dgbox/Strata-data/packs/iq3_s --native /home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf --ple-gguf /home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf --expert-profile /home/dgbox/Strata/data/expert-profile-learned-iq3s.bin --expert-cache auto --prefill auto --spec 4 --mtp /home/dgbox/Strata-data/mtp/rt --max-context 204800 --kv int8 --mmap-experts --vision --vram-reserve-mib 989 --control-vector-scaled /home/dgbox/Strata/data/experimental-speed-projection/Qwen3.8-Flash-Next-experimental-speed-projection.gguf:1.0 --control-vector-layer-range 4 44 --cvec-mode project --cvec-dir per-layer --spec-min-p 0.5 --expert-profile-save /home/dgbox/Strata/data/expert-profile-learned-iq3s.bin --expert-profile-save-every 10",
+  "model_files": [
+   {
+    "flag": "--pack",
+    "path": "/home/dgbox/Strata-data/packs/iq3_s",
+    "kind": "dir"
+   },
+   {
+    "flag": "--native",
+    "path": "/home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "size_bytes": 54817524224,
+    "mtime": "2026-10-02T21:55:35"
+   },
+   {
+    "flag": "--ple-gguf",
+    "path": "/home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+    "size_bytes": 28800138432,
+    "mtime": "2026-09-30T17:44:33"
+   },
+   {
+    "flag": "--expert-profile",
+    "path": "/home/dgbox/Strata/data/expert-profile-learned-iq3s.bin",
+    "size_bytes": 196632,
+    "mtime": "2026-10-18T09:01:28"
+   },
+   {
+    "flag": "--mtp",
+    "path": "/home/dgbox/Strata-data/mtp/rt",
+    "kind": "dir"
+   },
+   {
+    "flag": "--control-vector-scaled",
+    "path": "/home/dgbox/Strata/data/experimental-speed-projection/Qwen3.8-Flash-Next-experimental-speed-projection.gguf",
+    "size_bytes": 483520,
+    "mtime": "2026-09-30T17:07:53"
+   },
+   {
+    "flag": "--expert-profile-save",
+    "path": "/home/dgbox/Strata/data/expert-profile-learned-iq3s.bin",
+    "size_bytes": 196632,
+    "mtime": "2026-10-18T09:01:28"
+   }
+  ],
+  "server_config_path": "/home/dgbox/Strata/strata-test-iq3s-200k.json",
+  "server_config": {
+   "exe": "/home/dgbox/Strata/engine/strata",
+   "args": [
+    "--pack",
+    "/home/dgbox/Strata-data/packs/iq3_s",
+    "--native",
+    "/home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf",
+    "/home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+    "--expert-profile",
+    "/home/dgbox/Strata/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--mtp",
+    "/home/dgbox/Strata-data/mtp/rt",
+    "--max-context",
+    "204800",
+    "--kv",
+    "int8",
+    "--mmap-experts",
+    "--vision",
+    "--vram-reserve-mib",
+    "989",
+    "--control-vector-scaled",
+    "/home/dgbox/Strata/data/experimental-speed-projection/Qwen3.8-Flash-Next-experimental-speed-projection.gguf:1.0",
+    "--control-vector-layer-range",
+    "4",
+    "44",
+    "--cvec-mode",
+    "project",
+    "--cvec-dir",
+    "per-layer",
+    "--spec-min-p",
+    "0.5"
+   ],
+   "cwd": "/home/dgbox/Strata",
+   "tokenizer": "/home/dgbox/Strata-data/packs/iq3_s/tokenizer",
+   "model_name": "qwen3.8-flash-next-iq3_s",
+   "draft_vocab": "cyrillic",
+   "expert_profile_save": "/home/dgbox/Strata/data/expert-profile-learned-iq3s.bin",
+   "expert_profile_save_every": 10,
+   "env": {
+    "STRATA_PF_FUSED": "1"
+   },
+   "log": "/home/dgbox/Strata/strata-test-iq3s-200k.log",
+   "lib_dirs": [
+    "/usr/local/cuda/bin",
+    "/usr/local/cuda/lib64"
+   ],
+   "port": 8080,
+   "host": "0.0.0.0",
+   "gpu": 0,
+   "gpus_asked": true,
+   "vision": {
+    "exe": "/home/dgbox/Strata/engine/strata-vision",
+    "mmproj": "/home/dgbox/Strata-data/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf",
+    "model": "/home/dgbox/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "gpu": true,
+    "max_tokens": 1024
+   }
+  }
+ },
+ "memory": {
+  "start_snapshot": {
+   "vram_used_mib": 22100,
+   "ram_used_kib": 6491512
+  },
+  "peak_vram_used_mib": 22100,
+  "peak_ram_used_kib": 7263840,
+  "note": "пик — максимум опросов каждые 2 с во время замеров"
+ },
+ "results": [
+  {
+   "case": "163840-prompt",
+   "target_prompt_tokens": 163840,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 534.2,
+    "min": 527.3,
+    "max": 555.7,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 43.4,
+    "min": 40.8,
+    "max": 45.6,
+    "n": 3
+   },
+   "ttft": {
+    "median": 292.68,
+    "min": 281.35,
+    "max": 296.49,
+    "n": 3
+   },
+   "wall": {
+    "median": 294.9,
+    "min": 285.01,
+    "max": 300.14,
+    "n": 3
+   },
+   "draft_ok": 270,
+   "draft_n": 357,
+   "all": [
+    {
+     "prompt_n": 156291,
+     "prompt_s": 555.7,
+     "gen_n": 150,
+     "gen_s": 40.8,
+     "draft_n": 131,
+     "draft_ok": 95,
+     "cached": 0,
+     "ttft_s": 281.347,
+     "wall_s": 285.01,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    },
+    {
+     "prompt_n": 156291,
+     "prompt_s": 527.3,
+     "gen_n": 167,
+     "gen_s": 45.6,
+     "draft_n": 146,
+     "draft_ok": 110,
+     "cached": 0,
+     "ttft_s": 296.494,
+     "wall_s": 300.14,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    },
+    {
+     "prompt_n": 156291,
+     "prompt_s": 534.2,
+     "gen_n": 97,
+     "gen_s": 43.4,
+     "draft_n": 80,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 292.682,
+     "wall_s": 294.9,
+     "text": "The text provided is a single sentence repeated many times. Here is the unique c"
+    }
+   ]
+  },
+  {
+   "case": "194560-prompt",
+   "target_prompt_tokens": 194560,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 537.5,
+    "min": 530.2,
+    "max": 539.3,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 41.3,
+    "min": 41.0,
+    "max": 42.6,
+    "n": 3
+   },
+   "ttft": {
+    "median": 345.31,
+    "min": 344.15,
+    "max": 350.0,
+    "n": 3
+   },
+   "wall": {
+    "median": 349.45,
+    "min": 348.24,
+    "max": 353.88,
+    "n": 3
+   },
+   "draft_ok": 330,
+   "draft_n": 432,
+   "all": [
+    {
+     "prompt_n": 185531,
+     "prompt_s": 530.2,
+     "gen_n": 166,
+     "gen_s": 42.6,
+     "draft_n": 143,
+     "draft_ok": 108,
+     "cached": 0,
+     "ttft_s": 350.0,
+     "wall_s": 353.88,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    },
+    {
+     "prompt_n": 185531,
+     "prompt_s": 537.5,
+     "gen_n": 170,
+     "gen_s": 41.0,
+     "draft_n": 143,
+     "draft_ok": 110,
+     "cached": 0,
+     "ttft_s": 345.312,
+     "wall_s": 349.45,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    },
+    {
+     "prompt_n": 185531,
+     "prompt_s": 539.3,
+     "gen_n": 170,
+     "gen_s": 41.3,
+     "draft_n": 146,
+     "draft_ok": 112,
+     "cached": 0,
+     "ttft_s": 344.146,
+     "wall_s": 348.24,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    }
+   ]
+  },
+  {
+   "case": "209715-prompt",
+   "target_prompt_tokens": 209715,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 529.6,
+    "min": 527.2,
+    "max": 529.9,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 41.7,
+    "min": 41.1,
+    "max": 43.4,
+    "n": 3
+   },
+   "ttft": {
+    "median": 377.81,
+    "min": 377.54,
+    "max": 379.5,
+    "n": 3
+   },
+   "wall": {
+    "median": 381.52,
+    "min": 381.5,
+    "max": 383.32,
+    "n": 3
+   },
+   "draft_ok": 317,
+   "draft_n": 407,
+   "all": [
+    {
+     "prompt_n": 200015,
+     "prompt_s": 529.9,
+     "gen_n": 166,
+     "gen_s": 41.7,
+     "draft_n": 139,
+     "draft_ok": 108,
+     "cached": 0,
+     "ttft_s": 377.543,
+     "wall_s": 381.5,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    },
+    {
+     "prompt_n": 200015,
+     "prompt_s": 527.2,
+     "gen_n": 166,
+     "gen_s": 43.4,
+     "draft_n": 140,
+     "draft_ok": 110,
+     "cached": 0,
+     "ttft_s": 379.501,
+     "wall_s": 383.32,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    },
+    {
+     "prompt_n": 200015,
+     "prompt_s": 529.6,
+     "gen_n": 153,
+     "gen_s": 41.1,
+     "draft_n": 128,
+     "draft_ok": 99,
+     "cached": 0,
+     "ttft_s": 377.809,
+     "wall_s": 381.52,
+     "text": "The text provided is a repetition of the same paragraph describing a function na"
+    }
+   ]
+  }
+ ]
+}
