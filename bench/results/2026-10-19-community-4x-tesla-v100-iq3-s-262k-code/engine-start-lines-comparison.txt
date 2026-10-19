@@ -1,0 +1,61 @@
+# How the two engines describe this run configuration at start-up
+#
+# Where the logs are. The run config has "log": "/home/dgbox/strata185/Strata/strata-185-iq3_s.log" - a path
+# inside the tree directory, so the file that gets written is the one belonging to whichever tree is
+# installed at ~/strata185/Strata at that moment. The two trees hold two copies of this machine log;
+# they are identical up to 2026-10-19 02:10:31 (the last 0.1.44.1 session before the update) and
+# diverge from there: each version records its own sessions of this cycle in its own copy.
+# A session block starts at its "[strata] <date> <time> engine started" line; the version of a block is
+# taken from the block's own "strata generate: session is up (engine X)" line.
+# These lines describe how an engine was started; they are not a measurement.
+
+## Sessions recorded in each copy
+### 0.1.45 tree (~/strata185/Strata) - Strata/strata-185-iq3_s.log
+  2026-10-11  engine 0.1.42: 4 start-ups
+  2026-10-12  engine 0.1.43: 1 start-ups
+  2026-10-13  engine 0.1.43: 1 start-ups
+  2026-10-14  engine 0.1.44.1: 2 start-ups
+  2026-10-15  engine 0.1.44.1: 18 start-ups
+  2026-10-15  engine ?: 1 start-ups
+  2026-10-16  engine 0.1.44.1: 1 start-ups
+  2026-10-17  engine 0.1.44.1: 13 start-ups
+  2026-10-19  engine 0.1.44.1: 1 start-ups
+  2026-10-19  engine 0.1.45: 9 start-ups
+  (the 02:10:31 0.1.44.1 block is here too: it is from the shared history before the copies diverged)
+
+### 0.1.44.1 tree (~/strata185/Strata-0.1.44.1.bak) - Strata-0.1.44.1.bak/strata-185-iq3_s.log
+  2026-10-11  engine 0.1.42: 4 start-ups
+  2026-10-12  engine 0.1.43: 1 start-ups
+  2026-10-13  engine 0.1.43: 1 start-ups
+  2026-10-14  engine 0.1.44.1: 2 start-ups
+  2026-10-15  engine 0.1.44.1: 18 start-ups
+  2026-10-15  engine ?: 1 start-ups
+  2026-10-16  engine 0.1.44.1: 1 start-ups
+  2026-10-17  engine 0.1.44.1: 13 start-ups
+  2026-10-19  engine 0.1.44.1: 7 start-ups
+
+## experts resident: 4 distinct lines (9 start-ups of 0.1.45, 76 of 0.1.44.1; both counts include the shared history of 2026-10-11..17)
+    36 x 0.1.44.1 |    0 x 0.1.45 | strata serve: layer split: 98% of the experts resident, the prompt path's streamed ring 96 slots
+    31 x 0.1.44.1 |    9 x 0.1.45 | strata serve: layer split: 97% of the experts resident, the prompt path's streamed ring 96 slots
+     7 x 0.1.44.1 |    0 x 0.1.45 | strata serve: layer split: 99% of the experts resident, the prompt path's streamed ring 96 slots
+     2 x 0.1.44.1 |    0 x 0.1.45 | strata serve: layer split: 96% of the experts resident, the prompt path's streamed ring 96 slots
+
+## prompt chunk: 1 distinct lines (9 start-ups of 0.1.45, 76 of 0.1.44.1; both counts include the shared history of 2026-10-11..17)
+    76 x 0.1.44.1 |    9 x 0.1.45 | strata serve: prompt chunk auto: 8192 tokens, a 96-slot ring
+
+## borrowed expert-cache slots: 11 distinct lines (9 start-ups of 0.1.45, 76 of 0.1.44.1; both counts include the shared history of 2026-10-11..17)
+    34 x 0.1.44.1 |    9 x 0.1.45 | strata serve: the prompt path borrows 1954 CUDA0 cache slots (3.41 GiB)
+    10 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1935 CUDA0 cache slots (3.40 GiB)
+     6 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1947 CUDA0 cache slots (3.41 GiB)
+     4 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1935 CUDA0 cache slots (3.41 GiB)
+     4 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1936 CUDA0 cache slots (3.40 GiB)
+     4 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1937 CUDA0 cache slots (3.41 GiB)
+     4 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1939 CUDA0 cache slots (3.41 GiB)
+     4 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1946 CUDA0 cache slots (3.41 GiB)
+     2 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1932 CUDA0 cache slots (3.41 GiB)
+     2 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1938 CUDA0 cache slots (3.41 GiB)
+     2 x 0.1.44.1 |    0 x 0.1.45 | strata serve: the prompt path borrows 1942 CUDA0 cache slots (3.40 GiB)
+
+## adaptive overlap: 1 distinct lines (9 start-ups of 0.1.45, 76 of 0.1.44.1; both counts include the shared history of 2026-10-11..17)
+    76 x 0.1.44.1 |    9 x 0.1.45 | strata serve: adaptive overlap: off: not on a layer split
+

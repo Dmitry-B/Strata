@@ -1,0 +1,845 @@
+FFF..FFFFF
+======================================================================
+FAIL: test_enter_for_every_question (tools._tmp_maxdiff_golden.MaxDiffGolden.test_enter_for_every_question) [64GB-1x32GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 196, in test_enter_for_every_question
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[912 chars]024}} != {'args': ['--pack', '<T>/data/packs/unsloth[916 chars]uf'}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '32768',
+            '--kv',
+            'int8',
+            '--resident-budget-gib',
+            '40',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': True,
+              'max_tokens': 1024,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf'}} :  GB, keeps ~40 GB of its 98 GB of experts in RAM   <- needs 108 GB RAM, you have 64
+  4) UD-Q6_K_XL 6-bit (Unsloth Dynamic): Q6_K experts with Q8_0 downs; download 169 GB, keeps ~40 GB of its 109 GB of experts in RAM   <- needs 118 GB RAM, you have 64
+  5) Q8_0 8-bit, the reference quality (every expert Q8_0); for a 192 GB PC; download 188 GB, keeps ~40 GB of its 128 GB of experts in RAM   <- needs 136 GB RAM, you have 64
+  [ok] RAM budget: 40 GiB of UD-Q4_K_XL's experts in RAM, the rest read from the model files on the SSD
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens   (recommended for your GPU)
+  3) 64K tokens
+  4) 128K tokens
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 32768 tokens
+
+  KV cache precision (the model's memory of the conversation):
+  1) 8-bit   (recommended: what every published number was measured with)
+  2) 4-bit   half the memory (about 4% faster at 128K), but measurably less precise on long
+             documents; long-context lookups (needle tests) still pass
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download and keeps ~1.4 GB of VRAM free for the image encoder, so text is a few % slower.
+  [ok] images: on
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmpwdc8o3lb/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmpwdc8o3lb/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmpwdc8o3lb/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmpwdc8o3lb/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmpwdc8o3lb/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_enter_for_every_question (tools._tmp_maxdiff_golden.MaxDiffGolden.test_enter_for_every_question) [96GB-1x16GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 196, in test_enter_for_every_question
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[953 chars] 10}} != {'args': ['--pack', '<T>/data/packs/unsloth[956 chars]: 6}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '65536',
+            '--kv',
+            'int8',
+            '--kv-resident',
+            '32768',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1', 'STRATA_ROUTE_TAIL_SKIP': '0'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': False,
+              'max_tokens': 300,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+-             'threads': 10}}
+?                        ^^
+
++             'threads': 6}}
+?                        ^
+ : 
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 65536 tokens
+
+  KV cache precision (the model's memory of the conversation):
+  1) 8-bit   (recommended: what every published number was measured with)
+  2) 4-bit   half the memory (about 4% faster at 128K), but measurably less precise on long
+             documents; long-context lookups (needle tests) still pass
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download. On a card under 24 GB the encoder runs on the CPU (a few seconds per picture, nothing taken
+  from the GPU, pictures read at up to 300 tokens; --vision-tokens 1024 for more detail): the GPU
+  encoder keeps ~1.4 GB of VRAM free, which costs 3-5% of text speed on 16 GB cards (measured) and
+  more on some PCs. --vision gpu if you want pictures in under a second.
+  [ok] images: on (encoder on the CPU)
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmpw4x9xqjc/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmpw4x9xqjc/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmpw4x9xqjc/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+       tip: on the CPU a Q8_0 copy of this encoder is a third smaller and about as exact (embedding cosine 0.999 vs BF16); see 'A Q8_0 encoder' in docs/DETAILS.md
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmpw4x9xqjc/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmpw4x9xqjc/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  [ok] KV streaming on: the context's KV cache lives in RAM (0.9 GB), more experts fit in VRAM
+  tip: for several agents or clients at once, --conversation-cache-mib 8192 in the config's args keeps each one's conversation; without it they were measured re-reading ~90% of their prompts (#882 #440; docs/DETAILS.md, Multiple conversations)
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_enter_for_every_question (tools._tmp_maxdiff_golden.MaxDiffGolden.test_enter_for_every_question) [128GB-1x24GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 196, in test_enter_for_every_question
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[939 chars]024}} != {'args': ['--pack', '<T>/data/packs/unsloth[943 chars]uf'}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '131072',
+            '--kv',
+            'int8',
+            '--kv-resident',
+            '32768',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1', 'STRATA_ROUTE_TAIL_SKIP': '0'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': True,
+              'max_tokens': 1024,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf'}} :  keeps only N GiB of them)
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens
+  3) 64K tokens
+  4) 128K tokens   (recommended for your GPU)
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 131072 tokens
+
+  KV cache precision (the model's memory of the conversation):
+  1) 8-bit   (recommended: what every published number was measured with)
+  2) 4-bit   half the memory (about 4% faster at 128K), but measurably less precise on long
+             documents; long-context lookups (needle tests) still pass
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download and keeps ~1.4 GB of VRAM free for the image encoder, so text is a few % slower.
+  [ok] images: on
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmp9sf403s2/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmp9sf403s2/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmp9sf403s2/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmp9sf403s2/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmp9sf403s2/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  [ok] KV streaming on: the context's KV cache lives in RAM (1.8 GB), more experts fit in VRAM
+  tip: with 128 GB of RAM, --prefill auto:32768 in the config's args read prompts 21-35% faster in community benchmarks (#433 #440 #834); not set, nothing changes
+  tip: for several agents or clients at once, --conversation-cache-mib 8192 in the config's args keeps each one's conversation; without it they were measured re-reading ~90% of their prompts (#882 #440; docs/DETAILS.md, Multiple conversations)
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_yes (tools._tmp_maxdiff_golden.MaxDiffGolden.test_yes) [64GB-1x32GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 186, in test_yes
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[912 chars]024}} != {'args': ['--pack', '<T>/data/packs/unsloth[916 chars]uf'}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '32768',
+            '--kv',
+            'int8',
+            '--resident-budget-gib',
+            '40',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': True,
+              'max_tokens': 1024,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf'}} : xperts in RAM
+  2) UD-Q4_K_XL (recommended) 4-bit (Unsloth Dynamic): K-quant experts, between UD-IQ4_XS and UD-Q5_K_XL in quality; download 111 GB, keeps ~40 GB of its 77 GB of experts in RAM
+  3) UD-Q5_K_XL 5-bit (Unsloth Dynamic): Q5_K experts with Q8_0 downs, close to Q8_0 in quality; download 158 GB, keeps ~40 GB of its 98 GB of experts in RAM   <- needs 108 GB RAM, you have 64
+  4) UD-Q6_K_XL 6-bit (Unsloth Dynamic): Q6_K experts with Q8_0 downs; download 169 GB, keeps ~40 GB of its 109 GB of experts in RAM   <- needs 118 GB RAM, you have 64
+  5) Q8_0 8-bit, the reference quality (every expert Q8_0); for a 192 GB PC; download 188 GB, keeps ~40 GB of its 128 GB of experts in RAM   <- needs 136 GB RAM, you have 64
+  [ok] RAM budget: 40 GiB of UD-Q4_K_XL's experts in RAM, the rest read from the model files on the SSD
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens   (recommended for your GPU)
+  3) 64K tokens
+  4) 128K tokens
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 32768 tokens
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download and keeps ~1.4 GB of VRAM free for the image encoder, so text is a few % slower.
+  [ok] images: on
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmpf54ffc44/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmpf54ffc44/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmpf54ffc44/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmpf54ffc44/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmpf54ffc44/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_yes (tools._tmp_maxdiff_golden.MaxDiffGolden.test_yes) [32GB-2x24GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 186, in test_yes
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[911 chars]024}} != {'args': ['--pack', '<T>/data/packs/unsloth[915 chars]uf'}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '32768',
+            '--kv',
+            'int8',
+            '--resident-budget-gib',
+            '8',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': True,
+              'max_tokens': 1024,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf'}} : 6 GB RAM, you have 32
+  [!]  UD-Q4_K_XL needs 48 GB of RAM or more; this PC has 32 GB: it would keep 8 GiB of its 71 GiB of experts in RAM and read the other 63 GiB from the SSD while it answers (single-digit tokens/s on most SSDs), and it may run out of RAM
+  [!]  installing UD-Q4_K_XL with 32 GB of RAM, as you chose
+  [!]  UD-Q4_K_XL runs on one GPU: using GPU 0 (NVIDIA GeForce RTX 3090, 24 GB) only (--gpus 0,1 shares it across GPU 0 (NVIDIA GeForce RTX 3090, 24 GB) + GPU 1 (NVIDIA GeForce RTX 3090, 24 GB), with its RAM budget)
+  [ok] RAM budget: 8 GiB of UD-Q4_K_XL's experts in RAM, the rest read from the model files on the SSD
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens   (recommended for your GPU)
+  3) 64K tokens
+  4) 128K tokens
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 32768 tokens
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download and keeps ~1.4 GB of VRAM free for the image encoder, so text is a few % slower.
+  [ok] images: on
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmp1ey2soak/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmp1ey2soak/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmp1ey2soak/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmp1ey2soak/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmp1ey2soak/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  tip: on a PC with 32 GB of RAM, "env": {"STRATA_RESIDENT_HEADROOM_GIB": "6"} in the config kept decode speed in a community benchmark and left the system 2 GiB more (#834); the default is 4
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_yes (tools._tmp_maxdiff_golden.MaxDiffGolden.test_yes) [47GB-2x16GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 186, in test_yes
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[927 chars] 10}} != {'args': ['--pack', '<T>/data/packs/unsloth[930 chars]: 6}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '32768',
+            '--kv',
+            'int8',
+            '--resident-budget-gib',
+            '23',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': False,
+              'max_tokens': 300,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+-             'threads': 10}}
+?                        ^^
+
++             'threads': 6}}
+?                        ^
+ : B) + GPU 1 (NVIDIA GeForce RTX 5060 Ti, 16 GB), with its RAM budget)
+  [ok] RAM budget: 23 GiB of UD-Q4_K_XL's experts in RAM, the rest read from the model files on the SSD
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens   (recommended for your GPU)
+  3) 64K tokens
+  4) 128K tokens
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 32768 tokens
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download. On a card under 24 GB the encoder runs on the CPU (a few seconds per picture, nothing taken
+  from the GPU, pictures read at up to 300 tokens; --vision-tokens 1024 for more detail): the GPU
+  encoder keeps ~1.4 GB of VRAM free, which costs 3-5% of text speed on 16 GB cards (measured) and
+  more on some PCs. --vision gpu if you want pictures in under a second.
+  [ok] images: on (encoder on the CPU)
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmpt7kj1th3/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmpt7kj1th3/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmpt7kj1th3/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+       tip: on the CPU a Q8_0 copy of this encoder is a third smaller and about as exact (embedding cosine 0.999 vs BF16); see 'A Q8_0 encoder' in docs/DETAILS.md
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmpt7kj1th3/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmpt7kj1th3/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  tip: on a PC with 47 GB of RAM, "env": {"STRATA_RESIDENT_HEADROOM_GIB": "6"} in the config kept decode speed in a community benchmark and left the system 2 GiB more (#834); the default is 4
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_yes (tools._tmp_maxdiff_golden.MaxDiffGolden.test_yes) [96GB-1x16GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 186, in test_yes
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[953 chars] 10}} != {'args': ['--pack', '<T>/data/packs/unsloth[956 chars]: 6}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '65536',
+            '--kv',
+            'int8',
+            '--kv-resident',
+            '32768',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1', 'STRATA_ROUTE_TAIL_SKIP': '0'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': False,
+              'max_tokens': 300,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+-             'threads': 10}}
+?                        ^^
+
++             'threads': 6}}
+?                        ^
+ : keeps only N GiB of them)
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens
+  3) 64K tokens   (recommended for your GPU)
+  4) 128K tokens
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 65536 tokens
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download. On a card under 24 GB the encoder runs on the CPU (a few seconds per picture, nothing taken
+  from the GPU, pictures read at up to 300 tokens; --vision-tokens 1024 for more detail): the GPU
+  encoder keeps ~1.4 GB of VRAM free, which costs 3-5% of text speed on 16 GB cards (measured) and
+  more on some PCs. --vision gpu if you want pictures in under a second.
+  [ok] images: on (encoder on the CPU)
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmptvwrop3u/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmptvwrop3u/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmptvwrop3u/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+       tip: on the CPU a Q8_0 copy of this encoder is a third smaller and about as exact (embedding cosine 0.999 vs BF16); see 'A Q8_0 encoder' in docs/DETAILS.md
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmptvwrop3u/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmptvwrop3u/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  [ok] KV streaming on: the context's KV cache lives in RAM (0.9 GB), more experts fit in VRAM
+  tip: for several agents or clients at once, --conversation-cache-mib 8192 in the config's args keeps each one's conversation; without it they were measured re-reading ~90% of their prompts (#882 #440; docs/DETAILS.md, Multiple conversations)
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+======================================================================
+FAIL: test_yes (tools._tmp_maxdiff_golden.MaxDiffGolden.test_yes) [128GB-1x24GB unsloth UD-Q4_K_XL]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/dgbox/strata185/Strata/tools/test_setup_golden.py", line 186, in test_yes
+    self.assertEqual(cfg, self.golden[key]["config"], out[-3000:])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'exe': '<T>/engine/<EXE>', 'args': ['--pac[939 chars]024}} != {'args': ['--pack', '<T>/data/packs/unsloth[943 chars]uf'}}
+  {'args': ['--pack',
+            '<T>/data/packs/unsloth-ud-q4_k_xl',
+            '--native',
+            '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf',
+            '--expert-profile',
+            '<T>/data/expert-profile.bin',
+            '--expert-cache',
+            'auto',
+            '--prefill',
+            'auto',
+            '--spec',
+            '4',
+            '--spec-min-p',
+            '0.5',
+            '--mtp',
+            '<T>/data/mtp/rt',
+            '--max-context',
+            '131072',
+            '--kv',
+            'int8',
+            '--kv-resident',
+            '32768',
+            '--vision',
+            '--vram-reserve-mib',
+            '700'],
+   'cwd': '<T>',
+   'env': {'STRATA_HC_Q8': '1', 'STRATA_ROUTE_TAIL_SKIP': '0'},
+   'exe': '<T>/engine/<EXE>',
+   'gpu': 0,
+   'gpus_asked': True,
+   'lib_dirs': ['<cuda>'],
+   'log': '<T>/strata-unsloth-ud-q4_k_xl.log',
+   'model_name': 'qwen3.8-flash-next-unsloth-ud-q4_k_xl',
+   'port': 8080,
+   'tokenizer': '<T>/data/packs/unsloth-ud-q4_k_xl/tokenizer',
+-  'vision': {'exe': '<T>/engine/strata-vision',
++  'vision': {'exe': '<T>/engine/strata-vision.exe',
+?                                             ++++
+
+              'gpu': True,
+              'max_tokens': 1024,
+              'mmproj': '<T>/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf',
+              'model': '<T>/models/unsloth-UD-Q4_K_XL/Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf'}} : ts in RAM
+  5) Q8_0 8-bit, the reference quality (every expert Q8_0); for a 192 GB PC; download 188 GB, keeps ~104 GB of its 128 GB of experts in RAM   <- needs 136 GB RAM, you have 128
+  [ok] all 77 GB of UD-Q4_K_XL's experts in RAM (they and 16 GiB more fit this PC's 128 GB; --resident-budget-gib N keeps only N GiB of them)
+  [ok] size: UD-Q4_K_XL
+
+  Context length = how much text the model can see at once (your chat, files, tool output).
+  Longer needs more VRAM for it, so fewer experts fit on the GPU:
+  1) 8K tokens
+  2) 32K tokens
+  3) 64K tokens
+  4) 128K tokens   (recommended for your GPU)
+  5) 200K tokens
+  6) 256K tokens
+  7) 384K tokens   (experimental: setup adds rope scaling)
+  8) 512K tokens   (experimental: setup adds rope scaling)
+  [ok] context: 131072 tokens
+  [ok] KV cache: 8-bit
+
+  Images: the model can also read pictures (screenshots, photos, scanned pages). This adds a 0.9 GB
+  download and keeps ~1.4 GB of VRAM free for the image encoder, so text is a few % slower.
+  [ok] images: on
+
+=== Step 3: Python packages ===
+
+=== Step 4: the Strata engine ===
+  [ok] llama.cpp 3cf0325 (gguf-py, ggml, mtmd)
+  [ok] engine: /tmp/tmpdp4soi8f/engine/strata
+
+=== Step 5: downloading Qwen3.8-Flash-Next (Unsloth) UD-Q4_K_XL ===
+  The model files go in /tmp/tmpdp4soi8f/models/unsloth-UD-Q4_K_XL
+  Files you already have: put them here with their original names (Qwen3.8-Flash-Next-UD-Q4_K_XL-00001-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00002-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00003-of-00004.gguf, Qwen3.8-Flash-Next-UD-Q4_K_XL-00004-of-00004.gguf), or use --gguf-dir <their folder>.
+  [ok] model files present
+  [ok] vision encoder: /tmp/tmpdp4soi8f/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+
+=== Step 6: preparing the model for Strata ===
+  [ok] model prepared: /tmp/tmpdp4soi8f/data/packs/unsloth-ud-q4_k_xl
+  [ok] MTP draft layer: /tmp/tmpdp4soi8f/data/mtp/rt
+
+=== Step 7: writing the start script ===
+  [ok] KV streaming on: the context's KV cache lives in RAM (1.8 GB), more experts fit in VRAM
+  tip: with 128 GB of RAM, --prefill auto:32768 in the config's args read prompts 21-35% faster in community benchmarks (#433 #440 #834); not set, nothing changes
+  tip: for several agents or clients at once, --conversation-cache-mib 8192 in the config's args keeps each one's conversation; without it they were measured re-reading ~90% of their prompts (#882 #440; docs/DETAILS.md, Multiple conversations)
+  [ok] start script: run-unsloth-UD-Q4_K_XL.bat
+
+All set.
+  API (OpenAI):     http://127.0.0.1:8080/v1   (any API key; model name: anything)
+  API (Anthropic):  http://127.0.0.1:8080/v1/messages
+  Next time:        just run ./setup.sh (or run-unsloth-UD-Q4_K_XL.bat) - it starts right away
+  Images:           send them in the chat page, in chat.py (/image <path>) or over the API
+  Several requests at once: left at one at a time - parallel N reduces waiting for several users but costs about 10-25% speed per request on this card (docs/BATCHING.md).
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 6.320s
+
+FAILED (failures=8)

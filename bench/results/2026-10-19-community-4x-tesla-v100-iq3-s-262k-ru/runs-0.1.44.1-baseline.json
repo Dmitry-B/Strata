@@ -1,0 +1,864 @@
+{
+ "label": "2026-10-19-v100-0144-ru",
+ "style": "ru",
+ "env": {
+  "collected_at": "2026-10-19T07:40:33",
+  "gpus": [
+   {
+    "index": 0,
+    "name": "Tesla V100-SXM2-16GB",
+    "vram_mib": "16384",
+    "driver": "580.178.04",
+    "power_limit_w": "300.00",
+    "pci_bus": "00000000:03:00.0"
+   },
+   {
+    "index": 1,
+    "name": "Tesla V100-SXM2-16GB",
+    "vram_mib": "16384",
+    "driver": "580.178.04",
+    "power_limit_w": "300.00",
+    "pci_bus": "00000000:04:00.0"
+   },
+   {
+    "index": 2,
+    "name": "Tesla V100-SXM2-16GB",
+    "vram_mib": "16384",
+    "driver": "580.178.04",
+    "power_limit_w": "300.00",
+    "pci_bus": "00000000:05:00.0"
+   },
+   {
+    "index": 3,
+    "name": "Tesla V100-SXM2-16GB",
+    "vram_mib": "16384",
+    "driver": "580.178.04",
+    "power_limit_w": "300.00",
+    "pci_bus": "00000000:06:00.0"
+   }
+  ],
+  "gpu": {
+   "index": 0,
+   "name": "Tesla V100-SXM2-16GB",
+   "vram_mib": "16384",
+   "driver": "580.178.04",
+   "power_limit_w": "300.00",
+   "pci_bus": "00000000:03:00.0"
+  },
+  "gpu_count": 4,
+  "gpu_link": "Failed to parse --display/-d flags",
+  "cpu": {
+   "model": "13th Gen Intel(R) Core(TM) i9-13900H",
+   "logical_cpus": "20"
+  },
+  "ram_total_kib": "96228068",
+  "os": "Ubuntu 26.04.1 LTS",
+  "kernel": "7.0.0-38-generic",
+  "cuda": "nvcc не найден",
+  "storage": "",
+  "strata_commit": "unknown-no-git-on-this-machine",
+  "strata_branch": "v0.1.44.1",
+  "source_tree_note": "release source tree v0.1.44.1 (no git metadata on this machine); the engine is built here from that tree with the same private CUDA 12.8 toolkit and private gcc-14 for sm_70",
+  "engine_version": "0.1.44.1",
+  "model_name": "qwen3.8-flash-next-iq3_s",
+  "context": {
+   "native": 262144,
+   "max_positions": 262144
+  },
+  "cache_max_tokens": 262144,
+  "vision": {
+   "enabled": true,
+   "available": true,
+   "error": null
+  },
+  "engine_launch_command": "движок не найден (возможно, запущен не напрямую)",
+  "server_config_path": "/home/dgbox/strata185/Strata/strata-185-iq3_s.json",
+  "server_config": {
+   "exe": "/home/dgbox/strata185/Strata/engine-cuda12/strata",
+   "args": [
+    "--pack",
+    "/home/dgbox/strata185/Strata-data/packs/iq3_s",
+    "--native",
+    "/home/dgbox/strata185/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf",
+    "/home/dgbox/strata185/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+    "--expert-profile",
+    "/home/dgbox/strata185/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--mtp",
+    "/home/dgbox/strata185/Strata-data/mtp/rt",
+    "--max-context",
+    "262144",
+    "--kv",
+    "int8",
+    "--mmap-experts",
+    "--vision",
+    "--vram-reserve-mib",
+    "512",
+    "--control-vector-scaled",
+    "/home/dgbox/strata185/data/experimental-speed-projection/Qwen3.8-Flash-Next-experimental-speed-projection.gguf:1.0",
+    "--control-vector-layer-range",
+    "4",
+    "44",
+    "--cvec-mode",
+    "project",
+    "--cvec-dir",
+    "per-layer",
+    "--spec-min-p",
+    "0.50",
+    "--pool-workers",
+    "12",
+    "--layer-split",
+    "auto"
+   ],
+   "cwd": "/home/dgbox/strata185/Strata",
+   "tokenizer": "/home/dgbox/strata185/Strata-data/packs/iq3_s/tokenizer",
+   "model_name": "qwen3.8-flash-next-iq3_s",
+   "draft_vocab": "cyrillic",
+   "expert_profile_save": "/home/dgbox/strata185/data/expert-profile-learned-185-iq3s.bin",
+   "expert_profile_save_every": 10,
+   "env": {
+    "STRATA_STAGE_TRIM": "1"
+   },
+   "log": "/home/dgbox/strata185/Strata/strata-185-iq3_s.log",
+   "lib_dirs": [
+    "/home/dgbox/strata185/cuda-12.8/bin",
+    "/home/dgbox/strata185/cuda-12.8/lib64"
+   ],
+   "port": 8080,
+   "host": "0.0.0.0",
+   "gpu": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "gpus_asked": true,
+   "vision": {
+    "exe": "/home/dgbox/strata185/Strata/engine-cuda12/strata-vision",
+    "mmproj": "/home/dgbox/strata185/Strata-data/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf",
+    "model": "/home/dgbox/strata185/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "gpu": true,
+    "max_tokens": 1024
+   }
+  }
+ },
+ "memory": {
+  "start_snapshot": {
+   "vram_used_mib": 16090,
+   "vram_per_gpu_mib": [
+    15246,
+    15618,
+    15874,
+    16090
+   ],
+   "ram_used_kib": 10733808
+  },
+  "peak_vram_used_mib": 16128,
+  "peak_vram_per_gpu_mib": [
+   15246,
+   15654,
+   15910,
+   16128
+  ],
+  "peak_ram_used_kib": 11466224,
+  "note": "пик — максимум опросов каждые 2 с во время замеров"
+ },
+ "results": [
+  {
+   "case": "4096-prompt",
+   "target_prompt_tokens": 4096,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 893.2,
+    "min": 889.7,
+    "max": 894.4,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 76.9,
+    "min": 67.9,
+    "max": 79.5,
+    "n": 3
+   },
+   "ttft": {
+    "median": 40.83,
+    "min": 4.56,
+    "max": 48.04,
+    "n": 3
+   },
+   "wall": {
+    "median": 44.14,
+    "min": 7.76,
+    "max": 51.79,
+    "n": 3
+   },
+   "draft_ok": 332,
+   "draft_n": 573,
+   "all": [
+    {
+     "prompt_n": 4028,
+     "prompt_s": 889.7,
+     "gen_n": 256,
+     "gen_s": 79.5,
+     "draft_n": 186,
+     "draft_ok": 120,
+     "cached": 0,
+     "ttft_s": 4.557,
+     "wall_s": 7.76,
+     "text": "Текст, который вы прислали, представляет собой многократное повторение одного и "
+    },
+    {
+     "prompt_n": 4028,
+     "prompt_s": 894.4,
+     "gen_n": 256,
+     "gen_s": 67.9,
+     "draft_n": 188,
+     "draft_ok": 92,
+     "cached": 0,
+     "ttft_s": 48.039,
+     "wall_s": 51.79,
+     "text": "Этот текст представляет собой пример **литературного минимализма с элементами аб"
+    },
+    {
+     "prompt_n": 4028,
+     "prompt_s": 893.2,
+     "gen_n": 256,
+     "gen_s": 76.9,
+     "draft_n": 199,
+     "draft_ok": 120,
+     "cached": 0,
+     "ttft_s": 40.827,
+     "wall_s": 44.14,
+     "text": "Текст, который вы прислали, представляет собой многократное повторение одного и "
+    }
+   ]
+  },
+  {
+   "case": "16384-prompt",
+   "target_prompt_tokens": 16384,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 1563.5,
+    "min": 1555.7,
+    "max": 1574.4,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 99.3,
+    "min": 95.8,
+    "max": 101.0,
+    "n": 3
+   },
+   "ttft": {
+    "median": 48.41,
+    "min": 10.15,
+    "max": 48.6,
+    "n": 3
+   },
+   "wall": {
+    "median": 49.47,
+    "min": 11.15,
+    "max": 49.61,
+    "n": 3
+   },
+   "draft_ok": 199,
+   "draft_n": 254,
+   "all": [
+    {
+     "prompt_n": 15928,
+     "prompt_s": 1574.4,
+     "gen_n": 102,
+     "gen_s": 101.0,
+     "draft_n": 81,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 10.149,
+     "wall_s": 11.15,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 15928,
+     "prompt_s": 1563.5,
+     "gen_n": 102,
+     "gen_s": 95.8,
+     "draft_n": 87,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 48.413,
+     "wall_s": 49.47,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 15928,
+     "prompt_s": 1555.7,
+     "gen_n": 102,
+     "gen_s": 99.3,
+     "draft_n": 86,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 48.601,
+     "wall_s": 49.61,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "32768-prompt",
+   "target_prompt_tokens": 32768,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 1986.2,
+    "min": 1981.9,
+    "max": 1990.0,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 93.8,
+    "min": 92.0,
+    "max": 93.9,
+    "n": 3
+   },
+   "ttft": {
+    "median": 69.66,
+    "min": 66.51,
+    "max": 72.77,
+    "n": 3
+   },
+   "wall": {
+    "median": 70.75,
+    "min": 67.58,
+    "max": 73.84,
+    "n": 3
+   },
+   "draft_ok": 193,
+   "draft_n": 255,
+   "all": [
+    {
+     "prompt_n": 31828,
+     "prompt_s": 1990.0,
+     "gen_n": 102,
+     "gen_s": 93.8,
+     "draft_n": 86,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 66.507,
+     "wall_s": 67.58,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 31828,
+     "prompt_s": 1986.2,
+     "gen_n": 102,
+     "gen_s": 93.9,
+     "draft_n": 86,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 72.772,
+     "wall_s": 73.84,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 31828,
+     "prompt_s": 1981.9,
+     "gen_n": 102,
+     "gen_s": 92.0,
+     "draft_n": 83,
+     "draft_ok": 63,
+     "cached": 0,
+     "ttft_s": 69.659,
+     "wall_s": 70.75,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "66560-prompt",
+   "target_prompt_tokens": 66560,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 2369.2,
+    "min": 2365.3,
+    "max": 2376.4,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 95.8,
+    "min": 93.3,
+    "max": 96.2,
+    "n": 3
+   },
+   "ttft": {
+    "median": 27.39,
+    "min": 27.26,
+    "max": 114.14,
+    "n": 3
+   },
+   "wall": {
+    "median": 28.43,
+    "min": 28.31,
+    "max": 115.22,
+    "n": 3
+   },
+   "draft_ok": 194,
+   "draft_n": 235,
+   "all": [
+    {
+     "prompt_n": 64628,
+     "prompt_s": 2369.2,
+     "gen_n": 102,
+     "gen_s": 93.3,
+     "draft_n": 79,
+     "draft_ok": 64,
+     "cached": 0,
+     "ttft_s": 114.139,
+     "wall_s": 115.22,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 64628,
+     "prompt_s": 2365.3,
+     "gen_n": 102,
+     "gen_s": 96.2,
+     "draft_n": 77,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 27.386,
+     "wall_s": 28.43,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 64628,
+     "prompt_s": 2376.4,
+     "gen_n": 102,
+     "gen_s": 95.8,
+     "draft_n": 79,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 27.26,
+     "wall_s": 28.31,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "131072-prompt",
+   "target_prompt_tokens": 131072,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 2573.1,
+    "min": 2571.4,
+    "max": 2574.1,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 92.4,
+    "min": 92.3,
+    "max": 92.9,
+    "n": 3
+   },
+   "ttft": {
+    "median": 49.53,
+    "min": 49.52,
+    "max": 49.57,
+    "n": 3
+   },
+   "wall": {
+    "median": 50.61,
+    "min": 50.61,
+    "max": 50.65,
+    "n": 3
+   },
+   "draft_ok": 195,
+   "draft_n": 242,
+   "all": [
+    {
+     "prompt_n": 127228,
+     "prompt_s": 2574.1,
+     "gen_n": 102,
+     "gen_s": 92.3,
+     "draft_n": 81,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 49.52,
+     "wall_s": 50.61,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 127228,
+     "prompt_s": 2571.4,
+     "gen_n": 102,
+     "gen_s": 92.4,
+     "draft_n": 81,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 49.568,
+     "wall_s": 50.65,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 127228,
+     "prompt_s": 2573.1,
+     "gen_n": 102,
+     "gen_s": 92.9,
+     "draft_n": 80,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 49.531,
+     "wall_s": 50.61,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "194560-prompt",
+   "target_prompt_tokens": 194560,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 2619.1,
+    "min": 2616.6,
+    "max": 2619.4,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 90.4,
+    "min": 90.1,
+    "max": 90.4,
+    "n": 3
+   },
+   "ttft": {
+    "median": 72.22,
+    "min": 72.21,
+    "max": 72.28,
+    "n": 3
+   },
+   "wall": {
+    "median": 73.33,
+    "min": 73.32,
+    "max": 73.39,
+    "n": 3
+   },
+   "draft_ok": 195,
+   "draft_n": 241,
+   "all": [
+    {
+     "prompt_n": 188828,
+     "prompt_s": 2619.1,
+     "gen_n": 102,
+     "gen_s": 90.4,
+     "draft_n": 80,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 72.212,
+     "wall_s": 73.32,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 188828,
+     "prompt_s": 2619.4,
+     "gen_n": 102,
+     "gen_s": 90.4,
+     "draft_n": 80,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 72.215,
+     "wall_s": 73.33,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 188828,
+     "prompt_s": 2616.6,
+     "gen_n": 102,
+     "gen_s": 90.1,
+     "draft_n": 81,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 72.281,
+     "wall_s": 73.39,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "209715-prompt",
+   "target_prompt_tokens": 209715,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 2630.1,
+    "min": 2627.5,
+    "max": 2630.3,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 93.3,
+    "min": 90.9,
+    "max": 94.8,
+    "n": 3
+   },
+   "ttft": {
+    "median": 77.52,
+    "min": 77.51,
+    "max": 77.58,
+    "n": 3
+   },
+   "wall": {
+    "median": 78.61,
+    "min": 78.59,
+    "max": 78.64,
+    "n": 3
+   },
+   "draft_ok": 199,
+   "draft_n": 233,
+   "all": [
+    {
+     "prompt_n": 203528,
+     "prompt_s": 2630.1,
+     "gen_n": 102,
+     "gen_s": 90.9,
+     "draft_n": 77,
+     "draft_ok": 65,
+     "cached": 0,
+     "ttft_s": 77.507,
+     "wall_s": 78.61,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 203528,
+     "prompt_s": 2630.3,
+     "gen_n": 102,
+     "gen_s": 93.3,
+     "draft_n": 80,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 77.515,
+     "wall_s": 78.59,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 203528,
+     "prompt_s": 2627.5,
+     "gen_n": 102,
+     "gen_s": 94.8,
+     "draft_n": 76,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 77.585,
+     "wall_s": 78.64,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "249037-prompt",
+   "target_prompt_tokens": 249037,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 2592.8,
+    "min": 2592.8,
+    "max": 2595.8,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 92.5,
+    "min": 88.7,
+    "max": 92.6,
+    "n": 3
+   },
+   "ttft": {
+    "median": 93.37,
+    "min": 93.26,
+    "max": 93.38,
+    "n": 3
+   },
+   "wall": {
+    "median": 94.46,
+    "min": 94.34,
+    "max": 94.51,
+    "n": 3
+   },
+   "draft_ok": 201,
+   "draft_n": 243,
+   "all": [
+    {
+     "prompt_n": 241728,
+     "prompt_s": 2592.8,
+     "gen_n": 102,
+     "gen_s": 92.5,
+     "draft_n": 78,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 93.377,
+     "wall_s": 94.46,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 241728,
+     "prompt_s": 2592.8,
+     "gen_n": 102,
+     "gen_s": 88.7,
+     "draft_n": 88,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 93.374,
+     "wall_s": 94.51,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    },
+    {
+     "prompt_n": 241728,
+     "prompt_s": 2595.8,
+     "gen_n": 102,
+     "gen_s": 92.6,
+     "draft_n": 77,
+     "draft_ok": 67,
+     "cached": 0,
+     "ttft_s": 93.26,
+     "wall_s": 94.34,
+     "text": "Зимний вечер медленно опускался на город, и фонари зажигались один за другим вдо"
+    }
+   ]
+  },
+  {
+   "case": "268000-prompt",
+   "target_prompt_tokens": 268000,
+   "max_tokens": 256,
+   "prompt_tok_s": {
+    "median": 2596.5,
+    "min": 2592.6,
+    "max": 2599.2,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 69.6,
+    "min": 55.3,
+    "max": 70.1,
+    "n": 3
+   },
+   "ttft": {
+    "median": 100.34,
+    "min": 100.24,
+    "max": 100.5,
+    "n": 3
+   },
+   "wall": {
+    "median": 103.68,
+    "min": 103.34,
+    "max": 104.95,
+    "n": 3
+   },
+   "draft_ok": 279,
+   "draft_n": 490,
+   "all": [
+    {
+     "prompt_n": 260128,
+     "prompt_s": 2599.2,
+     "gen_n": 219,
+     "gen_s": 70.1,
+     "draft_n": 151,
+     "draft_ok": 103,
+     "cached": 0,
+     "ttft_s": 100.238,
+     "wall_s": 103.34,
+     "text": "Этот текст представляет собой пример **бесконечного цикла** или **зацикливания**"
+    },
+    {
+     "prompt_n": 260128,
+     "prompt_s": 2596.5,
+     "gen_n": 256,
+     "gen_s": 55.3,
+     "draft_n": 178,
+     "draft_ok": 71,
+     "cached": 0,
+     "ttft_s": 100.342,
+     "wall_s": 104.95,
+     "text": "Этот текст представляет собой пример **бесконечного цикла** или **зацикливания**"
+    },
+    {
+     "prompt_n": 260128,
+     "prompt_s": 2592.6,
+     "gen_n": 223,
+     "gen_s": 69.6,
+     "draft_n": 161,
+     "draft_ok": 105,
+     "cached": 0,
+     "ttft_s": 100.496,
+     "wall_s": 103.68,
+     "text": "Этот текст представляет собой пример **бесконечного цикла** или **зацикливания**"
+    }
+   ]
+  },
+  {
+   "case": "gen-only",
+   "target_prompt_tokens": 120,
+   "max_tokens": 1024,
+   "prompt_tok_s": {
+    "median": 249.1,
+    "min": 248.9,
+    "max": 250.2,
+    "n": 3
+   },
+   "gen_tok_s": {
+    "median": 68.4,
+    "min": 67.9,
+    "max": 68.7,
+    "n": 3
+   },
+   "ttft": {
+    "median": 0.94,
+    "min": 0.93,
+    "max": 0.94,
+    "n": 3
+   },
+   "wall": {
+    "median": 11.0,
+    "min": 10.41,
+    "max": 12.54,
+    "n": 3
+   },
+   "draft_ok": 744,
+   "draft_n": 1694,
+   "all": [
+    {
+     "prompt_n": 228,
+     "prompt_s": 248.9,
+     "gen_n": 684,
+     "gen_s": 67.9,
+     "draft_n": 536,
+     "draft_ok": 242,
+     "cached": 0,
+     "ttft_s": 0.937,
+     "wall_s": 11.0,
+     "text": "Этот текст представляет собой атмосферную зарисовку, построенную на приёме **пов"
+    },
+    {
+     "prompt_n": 228,
+     "prompt_s": 249.1,
+     "gen_n": 798,
+     "gen_s": 68.7,
+     "draft_n": 648,
+     "draft_ok": 280,
+     "cached": 0,
+     "ttft_s": 0.937,
+     "wall_s": 12.54,
+     "text": "Этот текст представляет собой атмосферную зарисовку, построенную на приёме **пов"
+    },
+    {
+     "prompt_n": 228,
+     "prompt_s": 250.2,
+     "gen_n": 649,
+     "gen_s": 68.4,
+     "draft_n": 510,
+     "draft_ok": 222,
+     "cached": 0,
+     "ttft_s": 0.933,
+     "wall_s": 10.41,
+     "text": "Этот текст представляет собой атмосферную зарисовку, построенную на приёме **пов"
+    }
+   ]
+  }
+ ]
+}

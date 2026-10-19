@@ -1,0 +1,159 @@
+# When this was read
+  date: 2026-10-19T11:48:50+03:00
+  This probe ran after the measurement session of 2026-10-19 had finished. The values that were
+  collected during the runs live in the other files of this report: runs*.json (timings),
+  memory-samples.csv (VRAM/RAM every 2 s), env.json (the server side of the provenance).
+  The idle GPU readings below are the state of the machine at the moment of the probe.
+
+== platform (DMI)
+sys_vendor     Micro Computer (HK) Tech Limited
+board_vendor   Shenzhen Meigao Electronic Equipment Co.,Ltd
+bios_vendor    American Megatrends International, LLC.
+product_name   Venus Series
+product_version Default string
+board_name     AHWSA
+bios_version   AHWSA.1.22
+bios_date      03/12/2024
+chassis_type   3
+UEFI boot: yes
+
+== CPU
+Architecture:                            x86_64
+CPU(s):                                  20
+Vendor ID:                               GenuineIntel
+Model name:                              13th Gen Intel(R) Core(TM) i9-13900H
+CPU family:                              6
+Thread(s) per core:                      2
+Core(s) per socket:                      14
+Socket(s):                               1
+Stepping:                                2
+CPU(s) scaling MHz:                      20%
+CPU max MHz:                             5400.0000
+CPU min MHz:                             400.0000
+L3 cache:                                24 MiB (1 instance)
+NUMA node(s):                            1
+
+== memory
+MemTotal:       96228068 kB
+MemAvailable:   86168240 kB
+DIMM slots visible in the EDAC sysfs (module sizes need root):
+  dimm0 MC#0_Chan#0_DIMM#0
+
+  dimm2 MC#0_Chan#1_DIMM#0
+
+  dimm0 MC#1_Chan#0_DIMM#0
+
+  dimm2 MC#1_Chan#1_DIMM#0
+
+
+== storage
+NAME    MODEL                           SIZE TYPE FSTYPE
+nvme0n1 SOLIDIGM SSDPFKKW020X7 2048408248320 disk 
+filesystems:
+nvme0n1                1.9T 
+|-nvme0n1p1 vfat         1G /boot/efi
+`-nvme0n1p2 ext4       1.9T /
+the model files of this benchmark:
+  exe = /home/dgbox/strata185/Strata/engine-cuda12/strata
+  tokenizer = /home/dgbox/strata185/Strata-data/packs/iq3_s/tokenizer
+  expert_profile_save = /home/dgbox/strata185/data/expert-profile-learned-185-iq3s.bin
+  vision.exe = /home/dgbox/strata185/Strata/engine-cuda12/strata-vision
+  vision.mmproj = /home/dgbox/strata185/Strata-data/models/mmproj-Qwen3.8-Flash-Next-BF16.gguf
+  vision.model = /home/dgbox/strata185/Strata-data/models/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf
+
+== network
+08:00.0 Ethernet controller [0200]: Intel Corporation Ethernet Controller X710 for 10GbE SFP+ [8086:1572] (rev 02)
+08:00.1 Ethernet controller [0200]: Intel Corporation Ethernet Controller X710 for 10GbE SFP+ [8086:1572] (rev 02)
+5d:00.0 Ethernet controller [0200]: Intel Corporation Ethernet Controller I226-V [8086:125c] (rev 04)
+5e:00.0 Ethernet controller [0200]: Intel Corporation Ethernet Controller I226-LM [8086:125b] (rev 04)
+5f:00.0 Network controller [0280]: MEDIATEK Corp. MT7922 802.11ax PCI Express Wireless Network Adapter [14c3:0616]
+
+== the PCIe path to the GPUs
+root port that hosts them:
+  0000:00:01.0 vendor               0x8086
+  0000:00:01.0 device               0xa70d
+  0000:00:01.0 current_link_width   8
+  0000:00:01.0 current_link_speed   8.0 GT/s PCIe
+  0000:00:01.0 max_link_width       8
+  0000:00:01.0 max_link_speed       32.0 GT/s PCIe
+switch between the root port and the cards:
+01:00.0 PCI bridge [0604]: PLX Technology, Inc. PEX 8748 48-Lane, 12-Port PCI Express Gen 3 (8 GT/s) Switch, 27 x 27mm FCBGA [10b5:8748] (rev ca)
+02:08.0 PCI bridge [0604]: PLX Technology, Inc. PEX 8748 48-Lane, 12-Port PCI Express Gen 3 (8 GT/s) Switch, 27 x 27mm FCBGA [10b5:8748] (rev ca)
+02:09.0 PCI bridge [0604]: PLX Technology, Inc. PEX 8748 48-Lane, 12-Port PCI Express Gen 3 (8 GT/s) Switch, 27 x 27mm FCBGA [10b5:8748] (rev ca)
+02:10.0 PCI bridge [0604]: PLX Technology, Inc. PEX 8748 48-Lane, 12-Port PCI Express Gen 3 (8 GT/s) Switch, 27 x 27mm FCBGA [10b5:8748] (rev ca)
+02:11.0 PCI bridge [0604]: PLX Technology, Inc. PEX 8748 48-Lane, 12-Port PCI Express Gen 3 (8 GT/s) Switch, 27 x 27mm FCBGA [10b5:8748] (rev ca)
+each GPU's own link:
+  0000:03:00.0 width=8 speed=8.0 GT/s PCIe
+  0000:04:00.0 width=8 speed=8.0 GT/s PCIe
+  0000:05:00.0 width=8 speed=8.0 GT/s PCIe
+  0000:06:00.0 width=8 speed=8.0 GT/s PCIe
+GPU devices as the PCI layer sees them:
+03:00.0 3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)
+04:00.0 3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)
+05:00.0 3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)
+06:00.0 3D controller [0302]: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] [10de:1db1] (rev a1)
+
+== GPU modules
+0, Tesla V100-SXM2-16GB, 1323920036046, 00000000:03:00.0, 7.0, 16384 MiB, 300.00 W, 1530 MHz, 877 MHz, Enabled
+1, Tesla V100-SXM2-16GB, 0324218160473, 00000000:04:00.0, 7.0, 16384 MiB, 300.00 W, 1530 MHz, 877 MHz, Enabled
+2, Tesla V100-SXM2-16GB, 0323517036572, 00000000:05:00.0, 7.0, 16384 MiB, 300.00 W, 1530 MHz, 877 MHz, Enabled
+3, Tesla V100-SXM2-16GB, 1422119022723, 00000000:06:00.0, 7.0, 16384 MiB, 300.00 W, 1530 MHz, 877 MHz, Enabled
+0, 1312 MHz, 877 MHz, 34, 54.24 W
+1, 1312 MHz, 877 MHz, 35, 52.76 W
+2, 1312 MHz, 877 MHz, 34, 55.13 W
+3, 1312 MHz, 877 MHz, 34, 53.20 W
+
+== NVLink
+	[4mGPU0	GPU1	GPU2	GPU3	CPU Affinity	NUMA Affinity	GPU NUMA ID[0m
+GPU0	 X 	NV2	NV2	NV2	0-19	0		N/A
+GPU1	NV2	 X 	NV2	NV2	0-19	0		N/A
+GPU2	NV2	NV2	 X 	NV2	0-19	0		N/A
+GPU3	NV2	NV2	NV2	 X 	0-19	0		N/A
+
+Legend:
+
+  X    = Self
+  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)
+  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node
+  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)
+  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)
+  PIX  = Connection traversing at most a single PCIe bridge
+  NV#  = Connection traversing a bonded set of # NVLinks
+GPU 0: Tesla V100-SXM2-16GB (UUID: GPU-c4a285b6-4b3f-e33d-b215-96e0d6ea6f6e)
+	 Link 0: 25.781 GB/s
+	 Link 1: 25.781 GB/s
+	 Link 2: 25.781 GB/s
+	 Link 3: 25.781 GB/s
+	 Link 4: 25.781 GB/s
+	 Link 5: 25.781 GB/s
+GPU 1: Tesla V100-SXM2-16GB (UUID: GPU-856a23fb-2a0d-12bb-10af-7a31a071322d)
+	 Link 0: 25.781 GB/s
+	 Link 1: 25.781 GB/s
+	 Link 2: 25.781 GB/s
+	 Link 3: 25.781 GB/s
+	 Link 4: 25.781 GB/s
+	 Link 5: 25.781 GB/s
+GPU 2: Tesla V100-SXM2-16GB (UUID: GPU-121f2dc1-2feb-3d01-b0ff-57b876562bc7)
+	 Link 0: 25.781 GB/s
+	 Link 1: 25.781 GB/s
+	 Link 2: 25.781 GB/s
+	 Link 3: 25.781 GB/s
+	 Link 4: 25.781 GB/s
+	 Link 5: 25.781 GB/s
+GPU 3: Tesla V100-SXM2-16GB (UUID: GPU-df670e96-a76d-034a-8640-a3b6f6171696)
+	 Link 0: 25.781 GB/s
+	 Link 1: 25.781 GB/s
+	 Link 2: 25.781 GB/s
+	 Link 3: 25.781 GB/s
+	 Link 4: 25.781 GB/s
+	 Link 5: 25.781 GB/s
+
+== software
+Ubuntu 26.04.1 LTS
+7.0.0-38-generic
+580.178.04
+system CUDA: not installed - nvcc is not in PATH
+system compiler in PATH: gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+the toolchain the builds of both engines actually used (the paths are from bin/build-0.1.45.sh):
+  nvcc: release 12.8  at ~/strata185/cuda-12.8/bin/nvcc
+  gcc:  gcc-14 (Ubuntu 14.3.0-14ubuntu1) 14.3.0  at ~/strata185/gcc185/usr/bin/gcc-14

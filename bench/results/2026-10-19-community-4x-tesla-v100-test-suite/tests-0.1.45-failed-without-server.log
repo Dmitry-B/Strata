@@ -1,0 +1,181 @@
+ERROR: (unittest.loader._FailedTest.ERROR:) ... ERROR
+test_never_kills_an_unrelated_process (unittest.loader._FailedTest.test_never_kills_an_unrelated_process) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_a_first_install_stops_because_there_is_nothing_to_fall_back_to (unittest.loader._FailedTest.test_a_first_install_stops_because_there_is_nothing_to_fall_back_to) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_enter_for_every_question (unittest.loader._FailedTest.test_enter_for_every_question) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_loading_then_ready (unittest.loader._FailedTest.test_loading_then_ready) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_start_status_bench_stop (unittest.loader._FailedTest.test_start_status_bench_stop) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_status_sees_other_programs_on_the_port (unittest.loader._FailedTest.test_status_sees_other_programs_on_the_port) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_updating_keeps_the_installed_engine_instead_of_stopping (unittest.loader._FailedTest.test_updating_keeps_the_installed_engine_instead_of_stopping) ... ERROR
+FAIL: (unittest.loader._FailedTest.FAIL:) ... ERROR
+test_yes (unittest.loader._FailedTest.test_yes) ... ERROR
+
+======================================================================
+ERROR: ERROR: (unittest.loader._FailedTest.ERROR:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: ERROR:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'ERROR:'
+
+
+======================================================================
+ERROR: test_never_kills_an_unrelated_process (unittest.loader._FailedTest.test_never_kills_an_unrelated_process)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_never_kills_an_unrelated_process
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_never_kills_an_unrelated_process'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_a_first_install_stops_because_there_is_nothing_to_fall_back_to (unittest.loader._FailedTest.test_a_first_install_stops_because_there_is_nothing_to_fall_back_to)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_a_first_install_stops_because_there_is_nothing_to_fall_back_to
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_a_first_install_stops_because_there_is_nothing_to_fall_back_to'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_enter_for_every_question (unittest.loader._FailedTest.test_enter_for_every_question)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_enter_for_every_question
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_enter_for_every_question'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_loading_then_ready (unittest.loader._FailedTest.test_loading_then_ready)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_loading_then_ready
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_loading_then_ready'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_start_status_bench_stop (unittest.loader._FailedTest.test_start_status_bench_stop)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_start_status_bench_stop
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_start_status_bench_stop'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_status_sees_other_programs_on_the_port (unittest.loader._FailedTest.test_status_sees_other_programs_on_the_port)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_status_sees_other_programs_on_the_port
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_status_sees_other_programs_on_the_port'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_updating_keeps_the_installed_engine_instead_of_stopping (unittest.loader._FailedTest.test_updating_keeps_the_installed_engine_instead_of_stopping)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_updating_keeps_the_installed_engine_instead_of_stopping
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_updating_keeps_the_installed_engine_instead_of_stopping'
+
+
+======================================================================
+ERROR: FAIL: (unittest.loader._FailedTest.FAIL:)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: FAIL:
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'FAIL:'
+
+
+======================================================================
+ERROR: test_yes (unittest.loader._FailedTest.test_yes)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_yes
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_yes'
+
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.001s
+
+FAILED (errors=16)
