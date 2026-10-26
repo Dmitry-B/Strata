@@ -1,0 +1,72 @@
+{
+ "134144-prompt": {
+  "prompt_tok_s": {
+   "old": 3532.05,
+   "new": 3532.75
+  },
+  "gen_tok_s": {
+   "old": 116.95,
+   "new": 115.3
+  },
+  "ttft": {
+   "old": 36.28,
+   "new": 36.28
+  }
+ },
+ "189440-prompt": {
+  "prompt_tok_s": {
+   "old": 3495.5,
+   "new": 3491.25
+  },
+  "gen_tok_s": {
+   "old": 110.05,
+   "new": 114.7
+  },
+  "ttft": {
+   "old": 51.78,
+   "new": 51.84
+  }
+ },
+ "200704-prompt": {
+  "prompt_tok_s": {
+   "old": 3468.0,
+   "new": 3464.7
+  },
+  "gen_tok_s": {
+   "old": 118.55,
+   "new": 116.95
+  },
+  "ttft": {
+   "old": 55.29,
+   "new": 55.34
+  }
+ },
+ "66560-prompt": {
+  "prompt_tok_s": {
+   "old": 3542.75,
+   "new": 3543.6
+  },
+  "gen_tok_s": {
+   "old": 118.55,
+   "new": 114.65
+  },
+  "ttft": {
+   "old": 17.97,
+   "new": 17.97
+  }
+ },
+ "gen-only": {
+  "prompt_tok_s": {
+   "old": 459.95,
+   "new": 452.55
+  },
+  "gen_tok_s": {
+   "old": 142.15,
+   "new": 141.3
+  },
+  "ttft": {
+   "old": 0.37,
+   "new": 0.38
+  }
+ }
+}

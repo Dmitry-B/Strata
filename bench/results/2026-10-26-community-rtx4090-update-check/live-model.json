@@ -1,0 +1,67 @@
+{
+ "batch_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "solo 0: 64 tokens in 1.9s  DONE 64 23 352.7 1497.5 length 31 53 0 3094 41280 26157 298",
+   "solo 1: 64 tokens in 1.5s  DONE 64 25 348.3 1158.0 length 43 54 0 1810 36480 22381 308",
+   "solo 2: 64 tokens in 1.7s  DONE 64 27 383.1 1288.7 length 39 55 0 3985 38880 24516 112",
+   "solo 3: 64 tokens in 2.0s  DONE 64 32 468.5 1530.3 length 32 56 0 1759 42720 28218 444",
+   "batch: 4 slots, 256 tokens; admissions 2.2s; then 4.8s -> aggregate 36.4 tok/s overall, 39.6 tok/s from the first batch token"
+  ]
+ },
+ "batch_interleave_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "solo: A 200, A2 200, B 200, C 49, D 103, E 200 tokens",
+   "solo next turn from a slot: drafts accepted 136 of 172 (200 tokens in 3370.3 ms)"
+  ]
+ },
+ "parking_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "live (reference): prompt A 3682 tokens, follow-up 3801 tokens, reused 3775, follow-up in 1.12 s; restore lines: none",
+   "parked (A, B, A): prompt A 3682 tokens, follow-up 3801 tokens, reused 3775, follow-up in 1.39 s; restore lines: ['restored 266 tokens (checkpoint) in 25.8 ms; parked=1 bytes=426645764']",
+   "follow-up tokens: IDENTICAL (92 / 92)",
+   "second park of A: 57575808 bytes of K/V reused (retained from its restore)"
+  ]
+ },
+ "batch_groups_cache_test": {
+  "verdict": "FAIL as written; the requirement it guards is met (see README)",
+  "log_lines": [
+   "round 1: prompts {'A': 3141, 'B': 3142}, answers [80, 80]",
+   "round 2: prompts {'A': 3245, 'B': 3246}, answers [80, 80]",
+   "round 3: prompts {'A': 3349, 'B': 3350}, answers [21, 21]",
+   "slot gave back lines: 10  conversation cache restores: 69",
+   "FAIL"
+  ]
+ },
+ "cancel_park_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "PASS"
+  ]
+ },
+ "session_pressure_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "SAVE: ok {'tokens': 997, 'bytes': 251399760, 'ms': 375.2}",
+   "D live next turn: reused 957",
+   "RESTORE: {'tokens': 997, 'bytes': 251399760, 'ms': 140.5}",
+   "D after RESTORE: reused 1009",
+   "PASS"
+  ]
+ },
+ "early_close_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "solo: OK -> 'Blue '",
+   "batch: OK -> 'Blue '"
+  ]
+ },
+ "stop_resend_test": {
+  "verdict": "PASS",
+  "log_lines": [
+   "40 rounds, 0 bad"
+  ]
+ }
+}

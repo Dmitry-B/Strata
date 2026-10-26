@@ -1,0 +1,71 @@
+{
+ "minutes": 75,
+ "streams": 3,
+ "requests": 267,
+ "errors": 0,
+ "engine_restarts": 0,
+ "classes": {
+  "131k": {
+   "n": 22,
+   "ttft_p50": 38.21,
+   "ttft_max": 42.7,
+   "gen_tok_s_p50": 2.5,
+   "out_tokens_p50": 96
+  },
+  "16k": {
+   "n": 45,
+   "ttft_p50": 2.4,
+   "ttft_max": 5.7,
+   "gen_tok_s_p50": 31.7,
+   "out_tokens_p50": 96
+  },
+  "185k": {
+   "n": 22,
+   "ttft_p50": 61.75,
+   "ttft_max": 73.5,
+   "gen_tok_s_p50": 1.6,
+   "out_tokens_p50": 96
+  },
+  "196k": {
+   "n": 22,
+   "ttft_p50": 60.02,
+   "ttft_max": 69.8,
+   "gen_tok_s_p50": 1.6,
+   "out_tokens_p50": 96
+  },
+  "45k": {
+   "n": 44,
+   "ttft_p50": 14.09,
+   "ttft_max": 16.1,
+   "gen_tok_s_p50": 6.5,
+   "out_tokens_p50": 96
+  },
+  "4k": {
+   "n": 45,
+   "ttft_p50": 14.8,
+   "ttft_max": 52.9,
+   "gen_tok_s_p50": 6.2,
+   "out_tokens_p50": 96
+  },
+  "short": {
+   "n": 67,
+   "ttft_p50": 14.9,
+   "ttft_max": 64.7,
+   "gen_tok_s_p50": 2.2,
+   "out_tokens_p50": 33
+  }
+ },
+ "gpu_temp_max_C": 61,
+ "vram_peak_MiB": 22160,
+ "ram_available_min_MiB": 4684,
+ "ttft_drift": {
+  "short": {
+   "first_third_p50": 22.16,
+   "last_third_p50": 22.2
+  },
+  "16k": {
+   "first_third_p50": 2.36,
+   "last_third_p50": 2.69
+  }
+ }
+}

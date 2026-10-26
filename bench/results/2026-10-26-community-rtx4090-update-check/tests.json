@@ -1,0 +1,929 @@
+{
+ "env": {
+  "measured_at": "2026-10-26T01:56:07+03:00",
+  "host_id": "rtx4090-workstation",
+  "os": "Ubuntu 26.04.1 LTS, Linux 7.0.0-38-generic",
+  "cpu": {
+   "model": "AMD Ryzen 9 7950X 16-Core Processor",
+   "threads": 32
+  },
+  "ram": {
+   "total_mib": 46464
+  },
+  "gpu": [
+   "NVIDIA GeForce RTX 4090, 23028 MiB, 615.71.09"
+  ],
+  "cuda_compiler": "Build cuda_13.4.r13.4/compiler.38855100_0",
+  "python": "Python 3.14.4",
+  "app_version": "v0.2.6",
+  "app_commit": "4b9e05a2a806a3fe24f7b2560d98626c37dade35",
+  "engine": {
+   "version": "0.1.51",
+   "source": "local",
+   "archs": [
+    89
+   ],
+   "src_hash": "a88a598cd60d6ee1",
+   "how_obtained": "compiled from source on this machine (no Linux engine archive is used here)"
+  },
+  "binaries_md5": {
+   "strata": "cdf8aae7d3baa13bb1e274f8006384a8",
+   "strata-vision": "802d6fbf2fde3b75f844d0e256b90f41"
+  },
+  "config": "strata-200k.json (unchanged by the update; see config.json in this folder, keys removed)",
+  "test_command": "python -m unittest tools/test_*.py; python -m unittest serve/test_*.py (minus test_winjob: Windows, and test_lifecycle: needs a free engine); python -m pytest tests/terminal tests/desktop tests/tuning tests/time_skip tests/sycl; ctest --test-dir build-tests (built with -DSTRATA_BUILD_TESTS=ON); npm test in apps/host",
+  "agent_traffic": "the agent driving this work used a different machine for its own requests, so its traffic did not reach this server during the measurements"
+ },
+ "current": {
+  "engine_version": "0.1.51",
+  "app_version": "v0.2.6",
+  "tools": {
+   "ran": 1234,
+   "seconds": 268.964,
+   "unittest_report": "FAILED failures=57, errors=1, skipped=4",
+   "failed_total": 58,
+   "by_module": {
+    "tools.test_setup_amd": {
+     "failures": 1,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_setup_points_windows_gfx12_to_the_entry",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      }
+     ]
+    },
+    "tools.test_setup_dsv41": {
+     "failures": 4,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_no_engine_stops_before_the_download",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_no_engine_stops_before_the_download",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_no_engine_stops_before_the_download",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_no_engine_stops_before_the_download",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      }
+     ]
+    },
+    "tools.test_setup_golden": {
+     "failures": 48,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      }
+     ]
+    },
+    "tools.test_strata_bench": {
+     "failures": 1,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_paths_names_ips_and_keys",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      }
+     ]
+    },
+    "tools.test_strata_mcp": {
+     "failures": 3,
+     "errors": 1,
+     "cases": [
+      {
+       "test": "test_never_kills_an_unrelated_process",
+       "param": "",
+       "kind": "ERROR",
+       "assertion": ""
+      },
+      {
+       "test": "test_loading_then_ready",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_start_status_bench_stop",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_status_sees_other_programs_on_the_port",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": "----------------------------------------------------------------------"
+      }
+     ]
+    }
+   }
+  },
+  "serve": {
+   "ran": 1023,
+   "seconds": 330.916,
+   "unittest_report": "FAILED failures=1, skipped=9",
+   "failed_total": 1,
+   "by_module": {
+    "serve.test_keepawake": {
+     "failures": 1,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_service_holds_for_the_whole_request_including_early_close",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": "----------------------------------------------------------------------"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "baseline_previous": {
+  "engine_version": "0.1.48.1",
+  "app_version": "v0.2.3.1",
+  "measured_at": "2026-10-23T16:39:36+03:00",
+  "tools": {
+   "ran": 1136,
+   "seconds": 187.173,
+   "unittest_report": "FAILED failures=52, errors=1, skipped=4",
+   "failed_total": 53,
+   "by_module": {
+    "tools.test_setup_golden": {
+     "failures": 48,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "64GB-1x32GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "32GB-2x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "47GB-2x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "96GB-1x16GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_enter_for_every_question",
+       "param": "128GB-1x24GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "64GB-1x32GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "32GB-2x24GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "47GB-2x16GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "96GB-1x16GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen recommended",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen Q2_0",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen IQ3_XXS",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB qwen IQ3_S",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_yes",
+       "param": "128GB-1x24GB unsloth UD-Q4_K_XL",
+       "kind": "FAIL",
+       "assertion": ""
+      }
+     ]
+    },
+    "tools.test_strata_bench": {
+     "failures": 1,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_paths_names_ips_and_keys",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      }
+     ]
+    },
+    "tools.test_strata_mcp": {
+     "failures": 3,
+     "errors": 1,
+     "cases": [
+      {
+       "test": "test_never_kills_an_unrelated_process",
+       "param": "",
+       "kind": "ERROR",
+       "assertion": ""
+      },
+      {
+       "test": "test_loading_then_ready",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_start_status_bench_stop",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": ""
+      },
+      {
+       "test": "test_status_sees_other_programs_on_the_port",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": "----------------------------------------------------------------------"
+      }
+     ]
+    }
+   }
+  },
+  "serve": {
+   "ran": 962,
+   "seconds": 307.075,
+   "unittest_report": "FAILED failures=1, skipped=8",
+   "failed_total": 1,
+   "by_module": {
+    "serve.test_keepawake": {
+     "failures": 1,
+     "errors": 0,
+     "cases": [
+      {
+       "test": "test_service_holds_for_the_whole_request_including_early_close",
+       "param": "",
+       "kind": "FAIL",
+       "assertion": "----------------------------------------------------------------------"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "groups_2026_10_26_full_scope": {
+  "1_engine_ctest": {
+   "command": "cmake -B build-tests -DSTRATA_BUILD_TESTS=ON && cmake --build build-tests && ctest --test-dir build-tests",
+   "build_note": "setup.py --update configures with -DSTRATA_BUILD_TESTS=OFF, so an update does not build the test binaries; a separate build-tests tree was configured, the working engine was not touched",
+   "run_with_server_running": {
+    "ran": 159,
+    "passed": 139,
+    "failed": 20,
+    "skipped": 3,
+    "note": "18 of 20 failures are 'CUDA: out of memory' - the working engine holds 22 GB of VRAM",
+    "log": "local run log, not included in this folder"
+   },
+   "run_with_server_stopped": {
+    "ran": 159,
+    "passed": 152,
+    "failed": 4,
+    "skipped": 3,
+    "log": "local run log, not included in this folder",
+    "failures": [
+     {
+      "test": "ple_parity",
+      "why": "fixture GGUF missing: ../../Q2_0/Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf (we keep IQ3_XXS and IQ3_S only)"
+     },
+     {
+      "test": "expert_parity",
+      "why": "fixture data missing: cannot read expert 0 (layer 0) from pack/full/experts.bin"
+     },
+     {
+      "test": "pool_test",
+      "why": "same missing fixture pack/full/experts.bin"
+     },
+     {
+      "test": "isa_guard_check",
+      "why": "not a missing fixture: libstrata_kernels_cpu.a, 755 functions, 117 hold wide-ISA instructions, 1 not allowed - strata::kernels::cpu::iq512x_rows (777 wide instructions, first vmovq) is wide-ISA code in an unlisted public function"
+     }
+    ]
+   },
+   "rerun_with_our_pack": {
+    "command": "build-tests/pool_test --selftest --file <pack>/experts.bin ; build-tests/expert_parity --selftest --file … (the tests take --file; ctest does not pass it, which is why they failed as 'cannot read pack/full/experts.bin')",
+    "pool_test": "PASS - 0 failures: 15 workers, 25600 outputs every job ran once, identical to the serial run (0 differ), 200 repeated batches, 160.8 GB/s on 10 experts",
+    "expert_parity": "FAIL by design, not by our data: the test reads the blob with the fixed stride of a Q2_0 pack made by tools/strata_pack.py (cpu::BLOB). Our pack is a native IQ3_XXS pack made by tools/iq_pack.py, where each expert keeps raw GGUF slices and the blob size changes per layer (native_experts.txt) - so the read lands on wrong bytes and the comparison returns nan. It needs a Q2_0 pack; this machine has no Q2_0 model",
+    "structural_checks_that_passed": "AVX-512 present; 'blob decodes to live scales' yes (40/40); 'the next expert is different data' yes (99.5% differ)",
+    "conclusion": "3 of the 4 ctest failures are now resolved or explained: pool_test passes, expert_parity and ple_parity need a Q2_0 model/pack we do not have, isa_guard_check is a real finding"
+   }
+  },
+  "2_serve_python": {
+   "command": "python -m unittest serve/test_*.py (64 of 66 modules)",
+   "ran": 1023,
+   "not_passing": 1,
+   "not_run": [
+    "serve.test_winjob (Windows)",
+    "serve.test_lifecycle (starts a live engine, competes for VRAM)"
+   ]
+  },
+  "3_tools_python": {
+   "command": "python -m unittest tools/test_*.py",
+   "ran": 1234,
+   "not_passing": 58
+  },
+  "4_terminal_control": {
+   "command": "python -m pytest tests/terminal",
+   "ran": 1794,
+   "passed": 1726,
+   "failed": 21,
+   "skipped": 47,
+   "subtests_passed": 337,
+   "seconds": 1215,
+   "by_module": {
+    "test_shared_models_folder": 11,
+    "test_discovery": 3,
+    "test_launch_tui": 2,
+    "test_bundle_imports": 1,
+    "test_connections": 1,
+    "test_no_acquisition": 1,
+    "test_private_files": 1
+   },
+   "clean_worktree_check": "the same failures reproduce in a clean git worktree at v0.2.6, also with HOME pointed at an empty directory; not a regression of this machine",
+   "log": "local run log, not included in this folder"
+  },
+  "5_app_ui": {
+   "command": "npm test (node scripts/test.mjs) in apps/host",
+   "ran": 1119,
+   "passed": 1013,
+   "failed": 2,
+   "skipped": 104,
+   "failures": [
+    {
+     "test": "packaged: an update job an OLDER host left running is finished when the app program file is newer than the job",
+     "file": "apps/host/tests/component-updates.test.mjs:315",
+     "why": "expected 'done', got 'error'"
+    },
+    {
+     "test": "Stop ends the job and everything it started, deletes the copies, leaves the person's files alone, and the run then reads as cancelled",
+     "file": "apps/host/tests/timeskip-real.test.mjs:98",
+     "why": "the revision command (a grandchild of the job) was ended too: true !== false"
+    }
+   ],
+   "log": "local run log, not included in this folder"
+  },
+  "6_other_python": {
+   "command": "python -m pytest tests/desktop tests/tuning tests/time_skip tests/sycl",
+   "results": {
+    "tests.desktop": "1 failed, 32 passed, 9 skipped, 8 subtests",
+    "tests.tuning": "272 passed",
+    "tests.time_skip": "34 passed, 1 skipped",
+    "tests.sycl": "5 passed"
+   },
+   "failure": {
+    "test": "tests/desktop/test_tester_readme.py::TesterReadmeTests::test_every_hash_and_size_in_the_readme_comes_from_the_file"
+   },
+   "log": "local run log, not included in this folder"
+  }
+ }
+}
